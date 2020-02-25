@@ -1,6 +1,7 @@
-class User
-  attr_reader :name, :balance
-  def initialize(name, balance=100)
-    @name = name
-    @balance = balance
+# frozen_string_literal: true
+
+class User < Player
+  def initialize(name)
+    super(name)
   end
+end
