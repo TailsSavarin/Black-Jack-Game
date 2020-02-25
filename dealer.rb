@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UI < Player
+class Dealer < Player
   def initialize(name = 'Dealer')
     super
   end
