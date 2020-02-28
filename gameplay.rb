@@ -11,11 +11,11 @@ class Gameplay
 
   def initialize
     @interface = Interface.new
-      interface.welcome_logo    
-      initialize_player
-      interface.welcome_info(user)
-      game_menu
-      interface.end_logo
+    interface.welcome_logo
+    initialize_player
+    interface.welcome_info(user)
+    game_menu
+    interface.end_logo
   end
 
   protected
@@ -27,7 +27,7 @@ class Gameplay
     while condition && can_play?
       main_menu
       interface.condition_info(user)
-      condition = gets.chomp.to_i != 0 
+      condition = gets.chomp.to_i != 0
     end
   end
 

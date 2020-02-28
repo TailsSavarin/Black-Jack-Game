@@ -45,16 +45,16 @@ class Interface
   MAIN_MENU = "
 -- Type '1' for start the game
 -- Type '2' for watching game rules
--- Type '3' for see players current balance\n 
+-- Type '3' for see players current balance\n
 ------------ Enter your answer ------------"
   USER_TURN = "
 -------- YOUR TURN --------
--- Type '1' 
--- To skip\n 
--- Type '2' 
--- To take card\n 
--- Type '3' 
--- For show cards\n 
+-- Type '1'
+-- To skip\n
+-- Type '2'
+-- To take card\n
+-- Type '3'
+-- For show cards\n
 --- Eneter your answer ---"
 
   def welcome_logo

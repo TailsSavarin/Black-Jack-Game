@@ -31,7 +31,7 @@ class Hand
       puts "You can't take more, 3 cards is the maximum"
     end
   end
-  
+
   def can_add?
     @cards.length <= MAX_CARDS
   end
