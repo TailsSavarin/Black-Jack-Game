@@ -3,22 +3,20 @@
 require_relative 'card'
 
 class CardDeck
-  attr_reader :cards_deck
+  SUITS = %w[♠ ♥ ♣ ♦].freeze
+  RANKS = [*(2..10), 'J', 'Q', 'K', 'A'].freeze
+
+  attr_reader :deck
 
   def initialize
-    @cards_deck = []
-    deck_creation
-  end
-
-  def deck_creation
-    Card::RANK_AND_SCORE.each do |rank, score|
-      Card::SUIT.each do |suit|
-        @cards_deck << Card.new(rank, suit, score)
-      end
+    @cards = []
+    SUITS.each do |suit|
+      RANKS.each { |rank| @cards << Card.new(rank, suit) }
     end
+    @cards.shuffle!
   end
 
-  def shuffle_deck
-    @cards_deck.shuffle!
+  def deal
+    @cards.pop
   end
 end

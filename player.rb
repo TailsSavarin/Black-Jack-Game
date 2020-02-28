@@ -1,12 +1,35 @@
 # frozen_string_literal: true
 
-# General Player class
 class Player
-  attr_reader :name, :cards, :bank
+  START_BALANCE = 100
+  BET = 10
+  WIN = 20
 
-  def initialize(name)
-    @name = name
-    @bank = Bank.new(100)
-    @cards = []
+  attr_accessor :balance
+  attr_reader :hand
+
+  def initialize(balance = START_BALANCE)
+    @balance = balance
+    @hand = Hand.new
+  end
+
+  def can_bet?
+    @balance >= BET
+  end
+
+  def place_bet
+    if can_bet?
+      @balance -= BET
+    else
+      puts 'You cannot place a bet, your balance is to low!'
+    end
+  end
+
+  def draw_bet
+    @balance += BET
+  end
+
+  def win_bet
+    @balance += WIN
   end
 end
