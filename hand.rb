@@ -42,7 +42,8 @@ class Hand
 
   def card_front
     cards.each do |card|
-      puts "
+      if card.rank != 10
+        puts "
 ███████
 █ #{card.rank} ══█
 █═════█
@@ -50,6 +51,16 @@ class Hand
 █═════█
 █══ #{card.rank} █
 ███████"
+      else
+        puts "
+███████
+█#{card.rank} ══█
+█═════█
+█═ #{card.suit} ═█
+█═════█
+█══#{card.rank} █
+███████"
+     end
     end
   end
 
