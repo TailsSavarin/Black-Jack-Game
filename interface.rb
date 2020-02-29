@@ -1,81 +1,84 @@
 # frozen_string_literal: true
 
 class Interface
-  INTRODUCTION = "
-### Hello and Welcome to the Black Jack Game!! ###
-░░░░░░░░░▄▄▄▄▄▄▄▄████▄▄▄▄░░░░░░░░░░░░░
-░░░░░░▄▄█▀▀▀▀░░░░░█░░░░▀▀▀▀██▄▄░░░░░░░
-░░░▄█▀▀░██░░░░░░░█▀░░░░░░░░▄███░░░░░░░
-▄█▀▀░░░░██░░░░░█▄█░░░░░▄░▄█▀░░▀█▄░░░░░
-░▀█░░░░███░░░▄███▀░░▄████▀░░░░░░▀█▄░░░
-░░▀█░░░░██░░▀████░░▀███▀░▄▄░░░░░░░█▄░░
-░░░▀█▄░████░░░░█▀▄▄█▀▀░░████▄░░░░░░▀█▄
-░░░░░█▄░▀▀█░░░▄████▄░░░░██████░░░▄█▀▀░
-░░░░░░█▄░░█░░░██▀▀█░░░░░▀▀▀▀▀▀░▄█▀░░░░
-░░░░░░░▀█░██▄▄█░░██▄░░░░░░░░░▄█▀░░░░░░
-░░░░░░░░▀█▄██▀░░▄█▄██▄░░░░░▄█▀░░░░░░░░
-░░░░░░░░░█▀░░░░░█░▀░░██▄▄▄█▀░░░░░░░░░░
-░░░░░░░░░█░░░░░░█░░░▀░░█▀░░░░░░░░░░░░░
-░░░░░░░░░█░░░░░░█░░░░▄█▀░░░░░░░░░░░░░░
-░░░░░░░░░█▄░░░░░▀░░░░█░░░░░░░░░░░░░░░░
-░░░░░░░░░▄█░░░░░░░░░█▀░░░░░░░░░░░░░░░░
-░░░░░░░░███▄▄▄░░░░░▄▀░░░░░░░░░░░░░░░░░
-░░░░░░░▀████████▄▄█▀░░░░░░░░░░░░░░░░░░
-░░░░░░░░░░▀▀▀█████▄░░░░░░░░░░░░░░░░░░░\n "
-  START_QUESTION = "
-######## Do you want to start the game? ########
-------------------# yes/no #--------------------\n "
-  START_GAME = "
-------------------------------------------------
------------ # The New Game Started # -----------
-------------------------------------------------\n "
-  END_GAME = "
-------------------------------------------------
------------------ # Good Bye # -----------------
-------------------------------------------------\n "
-
-  GAME_INFO = "
---------------------------- RULES -------------------------------------
-- Dealer deals 2 cards to the players and two to himself;
-- Blackjack card values: All cards count their face value in blackjack;
-- Picture cards count as 10 and the ace can count as either 1 or 11;
-- Card suits have no meaning in blackjack;
-- The winner is the one, whose score will be 21;
-- Or the one whose result will be closest to 21.\n "
-  MAIN_MENU = "
--- Type '1' for start the game
--- Type '2' for watching game rules
--- Type '3' for see players current balance\n
------------- Enter your answer ------------"
-  USER_TURN = "
--------- YOUR TURN --------
--- Type '1'
--- To skip\n
--- Type '2'
--- To take card\n
--- Type '3'
--- For show cards\n
---- Eneter your answer ---"
-
   def welcome_logo
-    puts INTRODUCTION
+    introduction = <<~INTRODUCTION
+      ### Hello and Welcome to the Black Jack Game!! ###
+
+      ░░░░░░░░░▄▄▄▄▄▄▄▄████▄▄▄▄░░░░░░░░░░░░░
+      ░░░░░░▄▄█▀▀▀▀░░░░░█░░░░▀▀▀▀██▄▄░░░░░░░
+      ░░░▄█▀▀░██░░░░░░░█▀░░░░░░░░▄███░░░░░░░
+      ▄█▀▀░░░░██░░░░░█▄█░░░░░▄░▄█▀░░▀█▄░░░░░
+      ░▀█░░░░███░░░▄███▀░░▄████▀░░░░░░▀█▄░░░
+      ░░▀█░░░░██░░▀████░░▀███▀░▄▄░░░░░░░█▄░░
+      ░░░▀█▄░████░░░░█▀▄▄█▀▀░░████▄░░░░░░▀█▄
+      ░░░░░█▄░▀▀█░░░▄████▄░░░░██████░░░▄█▀▀░
+      ░░░░░░█▄░░█░░░██▀▀█░░░░░▀▀▀▀▀▀░▄█▀░░░░
+      ░░░░░░░▀█░██▄▄█░░██▄░░░░░░░░░▄█▀░░░░░░
+      ░░░░░░░░▀█▄██▀░░▄█▄██▄░░░░░▄█▀░░░░░░░░
+      ░░░░░░░░░█▀░░░░░█░▀░░██▄▄▄█▀░░░░░░░░░░
+      ░░░░░░░░░█░░░░░░█░░░▀░░█▀░░░░░░░░░░░░░
+      ░░░░░░░░░█░░░░░░█░░░░▄█▀░░░░░░░░░░░░░░
+      ░░░░░░░░░█▄░░░░░▀░░░░█░░░░░░░░░░░░░░░░
+      ░░░░░░░░░▄█░░░░░░░░░█▀░░░░░░░░░░░░░░░░
+      ░░░░░░░░███▄▄▄░░░░░▄▀░░░░░░░░░░░░░░░░░
+      ░░░░░░░▀████████▄▄█▀░░░░░░░░░░░░░░░░░░
+      ░░░░░░░░░░▀▀▀█████▄░░░░░░░░░░░░░░░░░░░
+
+    INTRODUCTION
+    puts introduction
   end
 
   def game_rules
-    puts GAME_INFO
+    game_info = <<~INFO
+
+      -------------------------------- RULES --------------------------------
+      - Dealer deals 2 cards to the players and two to himself;
+      - Blackjack card values: All cards count their face value in blackjack;
+      - Picture cards count as 10 and the ace can count as either 1 or 11;
+      - Card suits have no meaning in blackjack;
+      - The winner is the one, whose score will be 21;
+      - Or the one whose result will be closest to 21.
+
+    INFO
+    puts game_info
   end
 
   def main_menu_choice
-    puts MAIN_MENU
+    main_menu = <<~MAIN
+      -------------------------------------------
+         ## Type  '1' ##
+         - For start the game
+         ## Type  '2' ##
+         - For watching game rules
+         ## Type  '3' ##
+         - For see players current balance
+      ⬇⬇⬇⬇ Enter your answer ⬇⬇⬇⬇
+    MAIN
+    puts main_menu
     gets.chomp.to_i
   end
 
   def start_logo
-    puts START_GAME
+    start_game = <<~START
+
+      ------------------------------------------------
+      ----------- # The New Game Started # -----------
+      ------------------------------------------------
+
+    START
+    puts start_game
   end
 
   def end_logo
-    puts END_GAME
+    end_game = <<~FINISH
+
+      ------------------------------------------------
+      ----------------- # Good Bye # -----------------
+      ------------------------------------------------
+
+    FINISH
+    puts end_game
   end
 
   def initialization
@@ -84,12 +87,12 @@ class Interface
   end
 
   def welcome_info(user)
-    puts "Hey #{user.name}! Hope you enjoy this game!\nLet's start!"
+    puts "Hey #{user.name}! Hope you enjoy this game! Let's start!\n "
   end
 
   def current_balance(user, dealer)
-    puts "Your current balance: $#{user.balance}\n"
-    puts "Dealer current balance: $#{dealer.balance}\n"
+    puts "Your current balance: $#{user.balance}"
+    puts "Dealer current balance: $#{dealer.balance}\n "
   end
 
   def deal_info
@@ -97,20 +100,34 @@ class Interface
   end
 
   def bet_info(bet, user, dealer)
-    puts "The size of the bet: $#{bet}\n"
+    puts "The size of the bet: $#{bet}"
     current_balance(user, dealer)
   end
 
   def cards_info(user, dealer)
-    puts "Your cards:\n "
+    puts 'Your cards:'
     user.hand.card_front
-    puts "Your current score points: -#{user.hand.score_points}-\n "
-    puts "Dealer cards:\n "
+    puts "Your current score points: -#{user.hand.score_points}-"
+    puts 'Dealer cards:'
     dealer.hand.card_back
   end
 
   def user_turn_info
-    puts USER_TURN
+    user_turn = <<~TURN
+      -----------------------------
+      --------# YOUR  TURN #--------
+              # Type   '1' #
+              ---> Skip <---
+
+              # Type    '2' #
+              -> Take Card <-
+
+              # Type     '3' #
+              -> Show Cards <-
+
+      ⬇⬇⬇ Eneter your answer ⬇⬇⬇
+    TURN
+    puts user_turn
     gets.chomp.to_i
   end
 
@@ -131,10 +148,10 @@ class Interface
   end
 
   def results_info(user, dealer)
-    puts "Your cards:\n "
+    puts 'Your cards:'
     user.hand.card_front
     puts "Your current score points: #{user.hand.score_points}\n "
-    puts "Dealer cards:\n "
+    puts 'Dealer cards:'
     dealer.hand.card_front
     puts "Dealer current score points: #{dealer.hand.score_points}\n "
   end
@@ -145,12 +162,21 @@ class Interface
 
   def win(player)
     puts "### THE WINNER IS ---> #{player.name} <--- ###\nWinnings credited to the balance!"
-    puts "#{player.name} current balance is: $#{player.balance}"
+    puts "#{player.name} current balance is: $#{player.balance}\n "
   end
 
   def condition_info(user)
-    puts "------- Hey #{user.name} -------"
-    puts "-- Type '1' to continue the game"
-    puts "-- Type '0' to exit"
+    condition_menu = <<~CONDITION
+      ----# Hey #{user.name} #----"
+          ####################
+              ⬇ Type '1' ⬇
+          To Continue the Game
+
+              ⬇ Type '0' ⬇
+          To Exit the Game
+          ####################
+      ⬇ Enter your answer
+    CONDITION
+    puts condition_menu
   end
 end

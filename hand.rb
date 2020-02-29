@@ -2,14 +2,6 @@
 
 class Hand
   MAX_CARDS = 3
-  BACK_SIDE = '
-███████
-█═════█
-█═════█
-█═════█
-█═════█
-█═════█
-███████'
   attr_accessor :cards
 
   def initialize
@@ -43,29 +35,47 @@ class Hand
   def card_front
     cards.each do |card|
       if card.rank != 10
-        puts "
-███████
-█ #{card.rank} ══█
-█═════█
-█═ #{card.suit} ═█
-█═════█
-█══ #{card.rank} █
-███████"
+        front1 = <<~FRONT1
+          ███████
+          █ #{card.rank} ══█
+          █═════█
+          █═#{card.suit} ═█
+          █═════█
+          █══ #{card.rank} █
+          ███████
+
+        FRONT1
+        puts front1
       else
-        puts "
-███████
-█#{card.rank} ══█
-█═════█
-█═ #{card.suit} ═█
-█═════█
-█══#{card.rank} █
-███████"
-     end
+        front2 = <<~FRONT2
+          ███████
+          █#{card.rank} ══█
+          █═════█
+          █═#{card.suit} ═█
+          █═════█
+          █══#{card.rank} █
+          ███████
+
+        FRONT2
+        puts front2
+      end
     end
   end
 
   def card_back
-    cards.each { |card| puts BACK_SIDE }
+    cards.each do |card|
+      back = <<~BACK
+        ███████
+        █═════█
+        █═════█
+        █═════█
+        █═════█
+        █═════█
+        ███████
+
+      BACK
+      puts back
+    end
   end
 
   def clear_cards

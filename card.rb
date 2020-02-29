@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Card
+  SUITS = %w[♠ ♥ ♣ ♦].freeze
+  RANKS = [*(2..10), 'J', 'Q', 'K', 'A'].freeze
   HIGH_RANKS = %w[J Q K].freeze
 
   attr_reader :rank, :suit
